@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bg text-ink font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection {
+    @apply bg-accent/30 text-ink;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto max-w-page px-6 sm:px-8;
+  }
+  .section {
+    @apply py-20 sm:py-28 scroll-mt-24;
+  }
+  .section-eyebrow {
+    @apply text-xs uppercase tracking-[0.2em] text-accent font-mono;
+  }
+  .section-title {
+    @apply mt-3 text-3xl sm:text-4xl font-semibold tracking-tight text-ink;
+  }
+  .card {
+    @apply rounded-xl border border-line bg-bg-subtle p-6 transition-colors hover:border-accent/40;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full border border-line bg-bg-elevated px-3 py-1 text-xs text-ink-muted font-mono;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-medium text-bg transition-colors hover:bg-accent-strong;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-line bg-transparent px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:border-accent/50 hover:text-accent;
+  }
+  .link-underline {
+    @apply text-accent underline-offset-4 hover:underline;
+  }
+}
+
+/* subtle radial backdrop behind hero */
+.hero-glow {
+  background:
+    radial-gradient(60% 50% at 30% 20%, rgba(125, 211, 252, 0.08), transparent 60%),
+    radial-gradient(40% 40% at 80% 30%, rgba(14, 165, 233, 0.06), transparent 60%);
+}
