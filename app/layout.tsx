@@ -1,8 +1,12 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { profile, site, seo } from "@/lib/content";
 import { JsonLd } from "@/components/JsonLd";
+
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION;
+const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
 
 // Self-host Inter via next/font: removes the render-blocking rsms.me request
 // and avoids CLS from late font swaps.
@@ -65,11 +69,7 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  verification: {
-    // Fill these in from Search Console / Bing Webmaster when verifying.
-    // google: "your-google-verification-token",
-    // other: { "msvalidate.01": "your-bing-verification-token" },
-  },
+  verification: googleVerification ? { google: googleVerification } : undefined,
 };
 
 export const viewport: Viewport = {
@@ -84,6 +84,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={inter.variable}>
       <head>
         <JsonLd />
+        {plausibleDomain ? (
+          <Script
+            defer
+            data-domain={plausibleDomain}
+            src="https://plausible.io/js/script.js"
+            strategy="afterInteractive"
+          />
+        ) : null}
       </head>
       <body>
         <a

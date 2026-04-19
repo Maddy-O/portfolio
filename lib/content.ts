@@ -2,7 +2,7 @@
 // Components are pure renderers — editing content should not require touching a component.
 
 export const site = {
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://maddy-portfolio-site.netlify.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://codemaddy-site.netlify.app",
   locale: "en_US",
 };
 
@@ -19,7 +19,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/maddy-o/",
   github: "https://github.com/Maddy-O",
   medium: process.env.NEXT_PUBLIC_MEDIUM_URL ?? "https://medium.com/@madandoor7s",
-  resumeHref: "/MadanMohan_SoftwareEngineer.pdf",
+  resumeHref: "/MadanMohan_FrontendEngineer.pdf",
   avatarHref: "/profile.jpg",
 };
 
